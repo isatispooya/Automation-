@@ -20,10 +20,14 @@ const LoginForm = ({
       return;
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const referal = urlParams.get('rf') || '';
+
     mutate(
       {
         nationalCode,
         password,
+        referal,
       },
       {
         onSuccess: () => {
